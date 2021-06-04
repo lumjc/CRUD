@@ -1,6 +1,5 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+
+require('dotenv').config()
 
 const express = require('express')
 const app = express ()
@@ -11,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
 
 
 app.set ('view engine','ejs')
@@ -30,6 +30,7 @@ db.once('open',() => console.log('Connected to Mongoose'))
 
 app.use('/' , indexRouter)
 app.use('/', authorRouter)
+app.use('/', bookRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
