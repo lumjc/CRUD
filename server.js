@@ -4,7 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express ()
 const expressLayouts = require ('express-ejs-layouts')
-const port = 3000
+const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 
 
