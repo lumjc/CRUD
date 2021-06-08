@@ -1,7 +1,21 @@
-<h2>New Author</h2>
+<body class="author-new-bg-img">
+<div class="container">
+<h2 class="title is-2 has-text-white is-family-code">New Author</h2>
 
-<form action ="/authors" method="POST">
+<form class ="author-form" action ="/authors" method="POST">
 <%- include('_form_fields') %> 
-<a href="/authors"> cancel</a>
-<button type="submit"> Create </button>
+
+<button class="button is-danger is-outlined is-medium" type="submit">
+    <span>
+    <a href="/authors">
+    Cancel
+    </span>
+    </a>
+    <span class="icon is-small">
+      <i class="fas fa-times"></i>
+  </button>
+
+<button class="button is-medium button is-primary is-focused is-light ml-4"type="submit"> Create </button>
 </form>
+</div>
+</body>

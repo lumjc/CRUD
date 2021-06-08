@@ -1,8 +1,51 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@200&display=swap');
+
+@import'shared/fonts.css';
+
+:root {
+    font-family: 'Arima Madurai';
+}
 .bg-img { 
     background-image: url("img/background.jpg");
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
-    background-size:  cover;
+    background-size: cover;
 }
+
+.author-index-bg-img { 
+    background-image: url("img/author.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.author-new-bg-img {
+    background-image: url("img/author.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.author-form {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: relative;  
+}
+
+a:link {text-decoration: none;}
+
+a:hover { text-decoration: none; }
+
+a:focus {
+    text-decoration: none;
+  }
+
