@@ -1,7 +1,37 @@
-<h2>recently added</h2>
 
-<div>
-    <% books.forEach(book => { %>
-     <img height="150" width="100" src="<%= book.coverImgPath %>">
-    <% }) %>
+<body class="bg-img">
+  
+</body>
+<div class="container">
+  <h1 class="title is-1 has-text-white">Recently Added</h1>
+<% books.forEach(book => { %>
+  <div class="columns is-multiline">
+    <div class="column">
+      <div class="card">
+      <div class="card-image">
+      <img src="<%= book.coverImgPath %>" alt="Placeholder image">
+    </figure>
   </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"></p>
+        <p class="subtitle is-6"></p>
+      </div>
+      </div>
+      <div class="content">
+        <%= book.description %> .
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% }) %>
+
+</body>

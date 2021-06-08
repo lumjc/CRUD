@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/sass/mystyles.css">
+    <script src="https://kit.fontawesome.com/6a08050210.js" crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script defer src="/javascripts/fileUpload.js"></script>
+    <link rel="stylesheet" href="sass/mystyles.css">
     <title>My Library</title>
 </head>
-<body>
+<nav>
     <%- include ('../partials/header.ejs') %>
+</nav>
+<body>
     <%- include ('../partials/errorMessage.ejs') %>
     <br>
     <%- body %>
