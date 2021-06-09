@@ -3,15 +3,18 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express ()
+const session = require('express-session')
 const expressLayouts = require ('express-ejs-layouts')
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 
+
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const bookRouter = require('./routes/books')
+const userRouter = require('./routes/user')
 
 
 app.set ('view engine','ejs')
@@ -19,9 +22,11 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(methodOverride('_method'))
+
+
 app.use(express.json())
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({limit: '20mb' , extended:false}))
+app.use(bodyParser.urlencoded({limit: '20mb' , extended:true}))
 
 const mongoose = require ('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true , useUnifiedTopology: true })
@@ -33,6 +38,8 @@ db.once('open',() => console.log('Connected to Mongoose'))
 app.use('/' , indexRouter)
 app.use('/', authorRouter)
 app.use('/', bookRouter)
+app.use('/', userRouter);
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

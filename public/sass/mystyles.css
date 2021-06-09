@@ -3,6 +3,9 @@
 
 @import'shared/fonts.css';
 
+body {
+    height: 100vh;
+}
 :root {
     font-family: 'Arima Madurai';
 }
@@ -12,6 +15,8 @@
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    max-width: 100%;
+    height: 100vh;
 }
 
 .author-index-bg-img { 
