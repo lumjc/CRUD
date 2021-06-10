@@ -1,6 +1,7 @@
 
 <body class="author-index-bg-img">
 <div class="container">
+  <div class="box has-background-grey-darker">
 <h2 class="title is-2 has-text-white is-family-code">Search Authors</h2>
 <form action="/authors" method="GET">
   <input class="input is-medium input is-rounded" type="text" name="name" value="<%= searchOptions.name %>">
@@ -22,6 +23,7 @@
   <%- include('../partials/deleteForm',
               { url: `/authors/${author.id}` }) %>
 <% }) %>
+</div>
 </div>
 </div>
 </body>

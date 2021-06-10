@@ -1,13 +1,21 @@
-<h2><%= author.name %></h2>
-<a href="/authors/<%= author.id %>/edit">Edit</a>
+<div class="container">
+    <div class="box has-background-grey-darker">
+<h2 class="is-size-3 has-text-white"><%= author.name %></h2>
+
+<a class="is-size-5 has-text-success button is-success button is-small is-outlined mt-3" href="/authors/<%= author.id %>/edit">Edit</a>
 <%- include ('../partials/deleteForm',
             {url: `/authors/${author.id}`}) %>
 
-<% if (booksByAuthor.length > 0) { %>
-    <h2>Books By Author</h2>
-    <% booksByAuthor.forEach(book => { %>
-        <img height ="150" widith="100" src="<%= book.coverImgPath %>">
-    <% }) %>
-    <% } %>
-
-  
+<div class="container mt-6">
+<nav class="level">
+    <% if (booksByAuthor.length > 0) { %>
+        <h2 class="is-size-4 has-text-white">Books By Author</h2>
+        <% booksByAuthor.forEach(book => { %>
+            <figure class="image is-128x128 mt-3 mr-3">
+            <img class="is-square" height ="150" widith="100" src="<%= book.coverImgPath %>">
+        </figure>
+        <% }) %>
+        <% } %>
+    </nav>
+</div>
+</div>

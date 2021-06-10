@@ -3,41 +3,17 @@
 
 @import'shared/fonts.css';
 
-body {
-    height: 100vh;
-}
-:root {
-    font-family: 'Arima Madurai';
-}
-.bg-img { 
-    background-image: url("img/background.jpg");
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    max-width: 100%;
-    height: 100vh;
-}
 
-.author-index-bg-img { 
-    background-image: url("img/author.jpg");
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
+html { 
+    background: url(img/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    max-width: 100%;
-    max-height: 100%;
-}
+  }
 
-.author-new-bg-img {
-    background-image: url("img/author.jpg");
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    max-width: 100%;
-    max-height: 100%;
-}
+
+  
 
 .author-form {
     max-width: 100%;
@@ -54,3 +30,34 @@ a:focus {
     text-decoration: none;
   }
 
+  .form-row {
+    display: flex;
+    margin-bottom: .5rem;
+  }
+  
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  
+  .form-item:first-child {
+    margin-left: 0;
+  }
+  
+  .form-item-no-grow {
+    flex-grow: 0;
+  }
+  
+  .form-row-end {
+    justify-content: flex-end;
+  }
+
+  .form-item > label {
+    font-size: var(--form-label-font-size);
+    margin-bottom: .25rem;
+    margin-left: .25rem;
+  }
+  

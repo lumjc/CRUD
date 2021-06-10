@@ -8,25 +8,25 @@
               Sign Up
             </h1>
             <div class="box">
-              <label class="label">Username</label>
+              <label for="Username">Username</label>
               <p class="control has-icon has-icon-right">
-                <input class="input" type="text" placeholder="jsmith@example.org">
+                <input class="input" type="text" id="username" name="username" placeholder="jsmith@example.org" required>
                 <span class="icon is-small">
                   <i class="fa fa-warning"></i>
                 </span>
                 <span class="help is-danger">{{Error Message}}</span>
               </p>
-              <label class="label">Email</label>
+              <label for="email">Email</label>
               <p class="control has-icon has-icon-right">
-                <input class="input" type="email" placeholder="jsmith@example.org">
+                <input class="input" type="email" id="email" name="email" placeholder="jsmith@example.org" required>
                 <span class="icon is-small">
                   <i class="fa fa-warning"></i>
                 </span>
                 <span class="help is-danger">{{Error Message}}</span>
               </p>
-              <label class="label">Password</label>
+              <label for="password">Password</label>
               <p class="control has-icon has-icon-right">
-                <input class="input" type="password" placeholder="●●●●●●●">
+                <input class="input" type="password" id="password" name="password" placeholder="●●●●●●●" required>
                 <span class="icon is-small">
                   <i class="fa fa-warning"></i>
                 </span>
@@ -34,14 +34,15 @@
               </p>
               <hr>
               <p class="control">
-                <button class="button is-primary">Sign Up</button>
+                <button type ="submit" class="button is-primary">Sign Up</button>
+                <a href="/user/login">
                 <button class="button is-default">Cancel</button>
+              </a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </section>
 </form>
