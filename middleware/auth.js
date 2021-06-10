@@ -1,15 +1,33 @@
-const jwt = require("jsonwebtoken");
+module.exports = {
 
-module.exports = function(req, res, next) {
-  const token = req.header("token");
-  if (!token) return res.status(401).json({ message: "Auth Error" });
+  authenticatedOnly: (req, res, next) => {
+      // if session is valid, go to the next stage
+      if (req.session && req.session.user) {
+          next()
+          return
+      }
 
-  try {
-    const decoded = jwt.verify(token, "randomString");
-    req.user = decoded.user;
-    next();
-  } catch (e) {
-    console.error(e);
-    res.status(500).send({ message: "Invalid Token" });
+      res.redirect('/user/login')
+  },
+
+  guestOnly: (req, res, next) => {
+      // if is not logged-in, allow request to proceed
+      if (!req.session || !req.session.user) {
+          next()
+          return
+      }
+
+      res.redirect('/user/dashboard')
+  },
+
+  setUserVarMiddleware: (req, res, next) => {
+      res.locals.user = null
+
+      if (req.session && req.session.user) {
+          res.locals.user = req.session.user
+      }
+
+      next()
   }
-};
+
+}

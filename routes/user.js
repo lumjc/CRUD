@@ -3,10 +3,12 @@ const router = express.Router();
 const User = require('../models/user');
 const { check, validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const auth = require('../middleware/auth')
+const {
+  authenticatedOnly: authenticatedOnlyMiddleware,
+  guestOnly: guestOnlyMiddleware,
+} = require('../middleware/auth')
 
-router.post( '/user/signup',
+router.post( '/user/signup', guestOnlyMiddleware, 
     [
         check('username', 'Please Enter a Valid Username')
         .not()
@@ -78,7 +80,7 @@ router.post( '/user/signup',
 );
 
 router.post(
-  '/user/login',
+  '/user/login', guestOnlyMiddleware,
     [
       check("email", "Please enter a valid email").isEmail(),
       check("password", "Please enter a valid password").isLength({
@@ -89,9 +91,8 @@ router.post(
       const errors = validationResult(req);
   
       if (!errors.isEmpty()) {
-        res.redirect('/user/login')({
-          errors: errors.array()
-        });
+        res.redirect('/user/login') 
+        return
       }
   
       const { email, password } = req.body;
@@ -100,38 +101,18 @@ router.post(
           email
         });
         if (!user)
-        res.redirect('/user/login')({
-            message: "User Not Exist"
-          });
+        res.redirect('/user/login')
   
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
-        res.redirect('/user/login')({
-            message: "Incorrect Password !"
-          });
-        const payload = {
-          user: {
-            id: user.id
-          }
-        };
+        res.redirect('/user/login')
+          
         req.session.user = user
-        res.redirect('/user/dashboard')
+        res.redirect('/')
 
-        jwt.sign(
-          payload,
-          "randomString",
-          {
-            expiresIn: 3600
-          },
-          (err, token) => {
-            if (err) throw err;
-            res.status(200).json({
-              token
-            });
-          }
-        )
       } catch (err) {
-        this.res.status(500)({
+        console.log(err)
+        res.status(500).json({
           message: "Server Error"
         });
       }
@@ -139,21 +120,21 @@ router.post(
   );
 
   
-router.get("/user/dashboard", auth, async (req, res) => {
+router.get("/user/dashboard", authenticatedOnlyMiddleware, async (req, res) => {
     try {
       // request.user is getting fetched from Middleware after token authentication
-      const user = await User.findById(req.user.id);
+      const user = await User.findById(req.session.user._id);
       res.json(user);
     } catch (e) {
       res.send({ message: "Error in Fetching user" });
     }
   });
 
-  router.get('/user/login', async (req, res) => {
+  router.get('/user/login', guestOnlyMiddleware, async (req, res) => {
       res.render('user/login')
   })
 
-  router.get('/user/signup', async (req, res) => {
+  router.get('/user/signup', guestOnlyMiddleware , async (req, res) => {
     res.render('user/signup')
 })
   

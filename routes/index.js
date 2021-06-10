@@ -2,9 +2,13 @@ const express = require ('express')
 const author = require('../models/author')
 const router = express.Router()
 const Book = require('../models/book')
+const {
+    authenticatedOnly: authenticatedOnlyMiddleware,
+    guestOnly: guestOnlyMiddleware,
+  } = require('../middleware/auth')
 
 
-router.get('/', async (req, res) => {
+router.get('/', authenticatedOnlyMiddleware, async (req, res) => {
     let books = []
     
     try {

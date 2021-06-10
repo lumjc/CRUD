@@ -3,10 +3,15 @@ const mongoose  = require('mongoose')
 const router = express.Router()
 const Author = require ('../models/author')
 const Book = require('../models/book')
+const {
+  authenticatedOnly: authenticatedOnlyMiddleware,
+  guestOnly: guestOnlyMiddleware,
+} = require('../middleware/auth')
+
 
 
 // All Authors Route
-router.get('/authors', async (req, res) => {
+router.get('/authors', authenticatedOnlyMiddleware, async (req, res) => {
     let searchOptions = {}
     if (req.query.name != null && req.query.name !== '') {
       searchOptions.name = new RegExp(req.query.name, 'i')
@@ -23,7 +28,7 @@ router.get('/authors', async (req, res) => {
   })
 
 // New Author Route
-router.get('/authors/new', (req, res) => {
+router.get('/authors/new', authenticatedOnlyMiddleware, (req, res) => {
     res.render('./authors/new' , { author: new Author() })
 })
 
@@ -44,7 +49,7 @@ router.post('/authors' , async (req,res) => {
 })
 
 // Edit author Route
-router.get('/authors/:id/edit' , async (req, res) => {
+router.get('/authors/:id/edit' ,authenticatedOnlyMiddleware, async (req, res) => {
   try {
     const author = await Author.findById(req.params.id)
     const books = await Book.find ({author: author}).limit(3).exec()
@@ -59,7 +64,7 @@ router.get('/authors/:id/edit' , async (req, res) => {
 })
 
 
-router.get('/authors/:id', async (req, res) => {
+router.get('/authors/:id', authenticatedOnlyMiddleware,async (req, res) => {
   try {
     const author = await Author.findById(req.params.id)
     const books = await Book.find({author: author.id})
@@ -73,7 +78,7 @@ router.get('/authors/:id', async (req, res) => {
 })
 
 
-router.put('/authors/:id', async (req, res) => {
+router.put('/authors/:id', authenticatedOnlyMiddleware, async (req, res) => {
     let author 
       try {
         author = await Author.findById(req.params.id)
@@ -97,7 +102,7 @@ router.put('/authors/:id', async (req, res) => {
 
 
 // delete
-  router.delete('/authors/:id', async (req, res) => {
+  router.delete('/authors/:id', authenticatedOnlyMiddleware,async (req, res) => {
     let author
     try {
       author = await Author.findById(req.params.id)
