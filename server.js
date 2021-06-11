@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const { setUserVarMiddleware } = require('./middleware/auth')
+const flash = require ('connect-flash')
 
 
 
@@ -23,6 +24,14 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(methodOverride('_method'))
+app.use(session({
+  secret:'secret',
+  cookie:{maxAge : 60000},
+  resave:false,
+  saveUninitialized: false
+}));
+
+app.use(flash());
 
 
 app.use(express.json())
