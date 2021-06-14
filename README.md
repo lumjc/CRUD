@@ -2,7 +2,7 @@
 Library Application
 
 
-![alt text](C:\Users\fatal\OneDrive\Desktop\picture\library.jpg)C:\Users\fatal\OneDrive\Desktop\picture\library.jpg
+![alt text](C:\\Users\fatal\OneDrive\Desktop\picture\library.jpg)
 
 
 ## Application Description
