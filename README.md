@@ -1,7 +1,7 @@
 # CRUD
 Library Application
 
-![alt text](https://unsplash.com/photos/YLSwjSy7stw)
+![alt text](https://unsplash.com/photos/t7zYZzO_CX0)
 
 ## Application Description
 Introducing a simple library application that allows book nerds worldwide to store their books collection or books that they have already read.
