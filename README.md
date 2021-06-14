@@ -28,13 +28,13 @@ We will be using a simple login function with password protection
 Bulma 
 
 ## Middleware used
-Filepond
-Mongoose
-express-session
-bodyParser
-MethodOverride
-Connect-flash
-express-validator
+1.Filepond
+2.Mongoose
+3.express-session
+4.bodyParser
+5.MethodOverride
+6.Connect-flash
+7.express-validator
 
 ## problems faced
 Unable to use JSON webtoken to authenticate 
