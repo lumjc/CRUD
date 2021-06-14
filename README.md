@@ -36,15 +36,15 @@ Bulma
 
 2.Mongoose
 
-3.express-session
+3.Express-session
 
-4.bodyParser
+4.BodyParser
 
 5.MethodOverride
 
 6.Connect-flash
 
-7.express-validator
+7.Express-validator
 
 ## Problems faced
 Unable to use JSON webtoken to authenticate 
