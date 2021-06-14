@@ -1,6 +1,8 @@
 # CRUD
 Library Application
 
+<img src="https://media.wired.com/photos/5926db217034dc5f91becd6b/master/w_582,c_limit/so-logo-s.jpg" width="250">
+
 ![alt text](https://unsplash.com/photos/t7zYZzO_CX0)
 
 ## Application Description
