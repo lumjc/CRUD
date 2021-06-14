@@ -1,5 +1,5 @@
 # CRUD
-Library Applicaiton
+Library Application
 
 ## Application Description
 Introducing a simple library application that allows book nerds worldwide to store their books collection or books that they have already read.
