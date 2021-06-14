@@ -17,7 +17,11 @@ We will be using a simple login function with password protection
 | HTTP Verb     | route| used for  |
 | ------------- |:-------------:| -----:|
 | Get           | '/'           | index page to display all articles |
-|       | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Get            |  '/authors/new'     |   Create a new author |
+| Get | '/authors'      |  Author default Page   |
+| Post | '/authors/:id/edit'      |  Edit Author Page   |
+| Get | '/books/new'      |  Create a new Book   |
+| Post | '/books'      |  Books default page   |
+| Delete | '/authors/:id'      |    Delete |
 
 
