@@ -24,4 +24,20 @@ We will be using a simple login function with password protection
 | Post | '/books'      |  Books default page   |
 | Delete | '/authors/:id'      |    Delete |
 
+## Css Framework used
+Bulma 
+
+## Middleware used
+Filepond
+Mongoose
+express-session
+bodyParser
+MethodOverride
+Connect-flash
+express-validator
+
+## problems faced
+Unable to use JSON webtoken to authenticate 
+Unable to install sass with bulma for more css manipulation and had to use CSS to supplement 
+
 
