@@ -31,10 +31,14 @@ Bulma
 1.Filepond
 
 2.Mongoose
+
 3.express-session
 4.bodyParser
+
 5.MethodOverride
+
 6.Connect-flash
+
 7.express-validator
 
 ## problems faced
