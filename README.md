@@ -1,6 +1,8 @@
 # CRUD
 Library Application
 
+![alt text](https://unsplash.com/photos/YLSwjSy7stw)
+
 ## Application Description
 Introducing a simple library application that allows book nerds worldwide to store their books collection or books that they have already read.
 The application will allow you to add your favourite authors and the books that they have written.
