@@ -37,6 +37,7 @@ Bulma
 2.Mongoose
 
 3.express-session
+
 4.bodyParser
 
 5.MethodOverride
@@ -45,8 +46,9 @@ Bulma
 
 7.express-validator
 
-## problems faced
+## Problems faced
 Unable to use JSON webtoken to authenticate 
+
 Unable to install sass with bulma for more css manipulation and had to use CSS to supplement 
 
 
