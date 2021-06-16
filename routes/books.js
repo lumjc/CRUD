@@ -4,13 +4,10 @@ const router = express.Router();
 const Author = require('../models/author');
 const Book = require('../models/book');
 const imgType = ['image/jpeg', 'image/png', 'images/gif', 'images/jpg'];
-const {
-  authenticatedOnly: authenticatedOnlyMiddleware,
-  guestOnly: guestOnlyMiddleware,
-} = require('../middleware/auth');
+
 
 // All Books Route
-router.get('/books', authenticatedOnlyMiddleware, async (req, res) => {
+router.get('/books', async (req, res) => {
   let query = Book.find();
   if (req.query.title != null && req.query.title != '') {
     query = query.regex('title', new RegExp(req.query.title, 'i'));
@@ -33,7 +30,7 @@ router.get('/books', authenticatedOnlyMiddleware, async (req, res) => {
 });
 
 // New Books Route
-router.get('/books/new', authenticatedOnlyMiddleware, async (req, res) => {
+router.get('/books/new', async (req, res) => {
   createNewPage(res, new Book());
 });
 

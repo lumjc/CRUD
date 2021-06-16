@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 
 require('dotenv').config()
 
@@ -24,9 +25,11 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(methodOverride('_method'))
+
 app.use(session({
+  key:'user_sid',
   secret:'secret',
-  cookie:{maxAge : 60000},
+  cookie:{maxAge : 600000},
   resave:false,
   saveUninitialized: false
 }));
@@ -45,7 +48,7 @@ app.use(session({
   name: 'user_session',
   resave: false,
   saveUninitialized: false,
-  cookie: { path: '/', secure: false, maxAge: 3600000 } // 3600000ms = 3600s = 60mins, cookie expires in an hour
+  cookie: { path: '/', secure: false, maxAge: 3600000 } 
 }))
 
 // setting middleware to ensure global template user variable
@@ -65,5 +68,5 @@ app.use('/', userRouter);
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+  console.log(`Example app listening at http://localhost:${port}`)
+})

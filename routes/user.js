@@ -11,7 +11,7 @@ const {
 
 router.post( '/user/signup', guestOnlyMiddleware,
     [
-      check('username', 'Please Enter a Valid Username')
+      check('username', 'Please Enter a valid username')
           .exists()
           .not()
           .isEmpty(),
