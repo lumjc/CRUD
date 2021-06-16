@@ -2,7 +2,7 @@
 Library Application
 
 
-![](img/author.jpg)
+![](sass/img/author.jpg)
 
 
 ## Application Description
