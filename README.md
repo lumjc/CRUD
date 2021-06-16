@@ -2,7 +2,7 @@
 Library Application
 
 
-![alt text](C:\\Users\fatal\OneDrive\Desktop\picture\library.jpg)
+![](img/author.jpg)
 
 
 ## Application Description
